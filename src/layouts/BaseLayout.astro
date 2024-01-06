@@ -1,0 +1,25 @@
+---
+import Header from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import '../pages/styles/global.css';
+import Hamburger from '../components/Hamburger.astro';
+const pageTitle = "Home page";
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+</head>
+<body>
+    <Hamburger />
+    <Header />
+    <h1>{pageTitle}</h1>
+    <Footer />
+    <script>
+        import "../pages/scripts/menu.js";
+    </script>
+</body>
+</html>

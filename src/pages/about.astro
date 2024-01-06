@@ -1,0 +1,68 @@
+---
+import Navigation from '../components/Navigation.astro';
+import '../pages/styles/global.css';
+import Footer from '../components/Footer.astro';
+import Hamburger from '../components/Hamburger.astro'
+
+const pageTitle = "About me";
+
+const identity = {
+    firstname: "Kubus",
+    country: "Poland",
+    occupation: "IT",
+    hobbies: ["programming", "hujkurwa", "balls"]
+};
+const skills = ["HTML", "CSS", "JS", "Astro"];
+const happy = false;
+const finished = false;
+const goal = 2;
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
+
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{pageTitle}</title>
+    <style define:vars={{skillColor, fontWeight, textCase}}>
+        h1 {
+            color: blueviolet;
+            font-size: 4rem;
+        }
+        .skill {
+            color: var(--skillColor);
+            font-weight: var(--fontWeight);
+            text-transform: var(--textCase);
+        }
+    </style>
+</head>
+<body>
+    <Hamburger />
+    
+    <Navigation />
+    <h1>{pageTitle}</h1>
+
+    <ul>
+        <li>my name is {identity.firstname}</li>
+        <li>i live in {identity.country} and i am studying as a {identity.occupation}</li>
+        {identity.hobbies.length >= 2 && 
+            <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+        }
+    </ul>
+    <p>My skills are:</p>
+    <ul>
+        {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
+
+    {happy && <p>i am happy to be learning astro</p>}
+
+
+    <Footer />
+    <script>
+        import "../pages/scripts/menu.js";
+    </script>
+</body>
+</html>
